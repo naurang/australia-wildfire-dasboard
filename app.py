@@ -83,9 +83,29 @@ app.layout = html.Div([
                         "borderRadius": "5px",
                         "marginTop": "10px"
                     }
-                )
+                ),
+
+                # Sidebar KPIs
+                html.Div([
+                    html.H4("Key Performance Indicators", style={"color": "white", "fontWeight": "bold", "marginBottom": "20px"}),
+                    html.Div([
+                        html.Div([
+                            html.H5("Total Fires", style={"color": custom_theme["white"]}),
+                            html.P("1,234", style={"color": "white", "fontSize": "20px", "fontWeight": "bold"})
+                        ], style={"marginBottom": "20px"}),
+                        html.Div([
+                            html.H5("Average Fire Area", style={"color": custom_theme["white"]}),
+                            html.P("567 sq km", style={"color": "white", "fontSize": "20px", "fontWeight": "bold"})
+                        ], style={"marginBottom": "20px"}),
+                        html.Div([
+                            html.H5("Regions Affected", style={"color": custom_theme["white"]}),
+                            html.P("7", style={"color": "white", "fontSize": "20px", "fontWeight": "bold"})
+                        ])
+                    ], style={"padding": "10px", "backgroundColor": "#FE7743", "borderRadius": "5px"})
+                ], style={"marginBottom": "20px"}),
+
             ], width=2, style={
-                "backgroundColor": custom_theme["secondary"],
+                "backgroundColor": custom_theme["primary"],
                 "height": "100vh",
                 "borderRadius": "10px",
                 "padding": "20px",
@@ -104,7 +124,7 @@ app.layout = html.Div([
                                 html.H5("Monthly Average Estimated Fire Area", className="card-title", style={"color": custom_theme["primary"], "marginBottom": "20px"}),
                                 html.Div(id="plot1")
                             ])
-                        ], style={"height": "550px", "marginBottom": "40px"}),  # Increased margin below the card
+                        ], style={"height": "550px", "marginBottom": "10px"}),  # Increased margin below the card
 
                         html.Iframe(
                             id="region-map",
@@ -130,7 +150,18 @@ app.layout = html.Div([
                 ])
             ], width={"size": 10, "offset": 2}, style={"marginTop": "20px"})
         ])
-    ])
+    ]),
+
+    # Footer
+    html.Footer(
+        children=[
+            html.Div([
+                html.Span("Developed by "),
+                html.A("Suraj Singh", href="https://www.linkedin.com/in/suraj-singh-naurang/", target="_blank", style={"color": custom_theme["accent"], "textDecoration": "none"}),
+            ], style={"textAlign": "center", "padding": "10px", "color": "white", "backgroundColor": custom_theme["primary"]})
+        ],
+        style={"position": "fixed", "bottom": 0, "width": "100%"}
+    )
 ])
 
 # Plot Callback
