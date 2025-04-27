@@ -1,0 +1,7 @@
+dash==2.11.0
+dash-bootstrap-components==1.4.1
+plotly==5.17.0
+pandas==1.5.3
+requests==2.31.0
+gunicorn==21.2.0
+folium==0.14.0
